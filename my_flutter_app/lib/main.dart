@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'screens/loginScreen.dart';
+import 'screens/LiftSelectionPage.dart';
+import 'screens/LoginScreen.dart';
+import 'screens/HomeScreen.dart';
+import 'screens/InfoUpload.dart';
+import 'screens/SettingsScreen.dart';
+import 'screens/SignupScreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(GymWorkoutApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class GymWorkoutApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
@@ -15,7 +19,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'My Gym Coach',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: loginScreen(),
+      intialRoute: '/login',
+      routes: {
+        '/login': (context) => LoginScreen(),
+        '/signup': (context) => SignupScreen(),
+        '/home': (context) => HomeScreen(),
+        '/lifts': (context) => LiftSelectionPage(),
+        '/info': (context) => InfoUpload(),
+        '/settings': (context) => SettingsScreen(),
+      }
     );
   }
 }

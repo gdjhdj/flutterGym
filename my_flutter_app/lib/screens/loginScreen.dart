@@ -1,9 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'homeScreen.dart';
-import 'signupScreen.dart';
+
 class LoginScreen extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+
+class _LoginScreenState extends State<LoginScreen> {
+final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool _obscurePassword = true;
   @override
@@ -37,31 +41,21 @@ class LoginScreen extends StatelessWidget {
                     },
                   ),
                 ),
+                obscureText: _obscurePassword,
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {
-                // Placeholder for authentication logic
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
-                  );
-                },
+                onPressed: () => Navigator.pushReplacementNamed(context, '/home'),
                 child: Text('Login'),
               ),
               TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignUpScreen()),
-                  );
-                },
+                onPressed: () => Navigator.pushNamed(context, '/signup'),
                 child: Text('Sign Up'),
               ),
-            ]
-          )
-        )
-      )
-    )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
